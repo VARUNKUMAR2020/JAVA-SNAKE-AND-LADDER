@@ -3,57 +3,54 @@ package com.snakeandladder;
 import java.util.*;
 
 public class SnakeAndLadder {
+    static int playerOne = 0;
 
     public static void main(String[] args) {
         System.out.println("Game of Snake and Ladder");
         System.out.println("Welcome player A");
 
-        // Random -to get number between 0 to 5:
-        Random random = new Random();
-        int roll = random.nextInt(5);
-        int rolled = roll + 1;
-        int playerOne = 0;
-        int move = 0;
-        System.out.println("Player A rolled: " + rolled);// Display the number in the die
-        System.out.println("PLayer A is at position: " + playerOne + rolled);// Display the position in the board
+        // Condition For checking player reached 100
+        while (playerOne < 100) {
+          
+            // Condition to check player not goes below 0
+            if(playerOne<0){
+                playerOne=0;
+                continue;
+            }
+            // Random to get number between 0 to 5:
+            Random random = new Random();
+            int roll = random.nextInt(5);
+            int rolled = roll + 1;
 
-        // switch case - Condition for following number:
-        switch (rolled) {
-            case 1:
-                move = rolled - 1;
-                playerOne = move;
+            System.out.println("Player A rolled: " + rolled);// Display the number in the die
+            System.out.println("PLayer A is at position: " + playerOne + rolled);// Display the position in the board
+
+            if (rolled == 1) {
+                playerOne = rolled - 1;
                 System.out.println("SNAKE: Player A found a Snake and moved behind.");
                 System.out.println("PLayer A is at position: " + playerOne);
-                break;
-            case 2:
-                move = rolled + 4;
-                playerOne = move;
-                System.out.println("LADDER: Player 1 moved ahead using Ladder.");
+            } else if (rolled == 2) {
+                playerOne = rolled + 4;
+                System.out.println("LADDER: Player A moved ahead using Ladder.");
                 System.out.println("PLayer A is at position: " + playerOne);
-                break;
-            case 3:
-                move = rolled + 9;
-                playerOne = move;
-                System.out.println("LADDER: Player 1 moved ahead using Ladder.");
+            } else if (rolled == 3) {
+                playerOne = rolled + 9;
+                System.out.println("LADDER: Player A moved ahead using Ladder.");
                 System.out.println("PLayer A is at position: " + playerOne);
-                break;
-            case 4:
-                move = rolled + 6;
-                playerOne = move;
-                System.out.println("LADDER: Player 1 moved ahead using Ladder.");
+            } else if (rolled == 4) {
+                playerOne = rolled + 6;
+                System.out.println("LADDER: Player A moved ahead using Ladder.");
                 System.out.println("PLayer A is at position: " + playerOne);
-                break;
-            case 5:
-                move = rolled + 3;
-                playerOne = move;
-                System.out.println("LADDER: Player 1 moved ahead using Ladder.");
+            } else if (rolled == 5) {
+                playerOne = rolled + 3;
+                System.out.println("LADDER: Player A moved ahead using Ladder.");
                 System.out.println("PLayer A is at position: " + playerOne);
-                break;
-            case 6:
-                System.out.println("NO PLAY: Player 1 can't move forward.");
-                System.out.println("PLayer 1 is at position => " + playerOne);
-                break;
-
+            } else {
+                System.out.println("NO PLAY: Player A can't move forward.");
+                System.out.println("PLayer A is at position: " + playerOne);
+            }
+            playerOne += 0;
         }
+        System.out.println("Game finished");
     }
 }
